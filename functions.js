@@ -28,18 +28,60 @@ console.log(getName("Roshanell"));
 // logGreeting2 should call myName() to get your name.
 // Then print your greeting to the console by calling logGreeting2().
 
+function logGreeting2(){
+    function myName(name){
+        let name = "Roshanell"
+    }
+ return {
+   `Hello! my name is ${name}.`
+}
+
+
 // Exercise 4. Write a function that takes 3 parameters that are all numbers.
 // The function should return the sum of the 3 numbers.
 // Then write some function calls you would use to test your function.
+
+function takesInThree(num1,num2,num3){
+return num1 + num2 + num3
+}
+
+console.log(takesInThree(1,2,3)) // 3
+console.log(takesInThree(4,5,6)) // 15
+
 
 // Exercise 5. Let's say a museum gives a discount for children ages 14 or under, and seniors 65 or older.
 // Write a function that takes in a person's age and returns true if they should get a discount.
 // Otherwise it should return false.
 // Then write some function calls you would use to test your function.
 
+function checkForDiscounts(age){
+    if(age <= 14){
+        // console.log(true)
+        return true
+    } else if (age >= 65){
+        // console.log(true)
+        return true
+    } else{
+        // console.log(false)
+        return false
+    }
+}
+
+console.log(checkForDiscounts(14)) // true
+console.log(checkForDiscounts(22)) // false
+console.log(checkForDiscounts(67))// true
+
+
 // Exercise 6. Write a function that takes 2 parameters -- one number and one string.
 // The function should print the string the given number of times.
 // Then write some function calls you would use to test your function.
+function takesInTwo( number, string){
+ return string.repeat(number)
+}
+
+console.log(takesInTwo(1, "Just Keep Swimming! "))
+console.log(takesInTwo(4, "You got this! "))
+console.log(takesInTwo(9, "Whoop Whoop! "))
 
 // Exercise 7. Read the following code (don't run it yet)
 function mysteryFunction1(p1) {
