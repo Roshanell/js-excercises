@@ -47,9 +47,9 @@ let assortedThings = ["One", "two", "three", 4, 5, 6];
 // Item #2 is Hello World
 // ...
 
-// for (let i = 0; i >assortedThings.length; i++){
-//     console.log("Item 1 is" + i)
-// }
+for (let i = 0; i > assortedThings.length; i++) {
+	console.log("Item 1 is" + i);
+}
 
 // Exercise 11. Write a function that takes an array of numbers as a parameter. For each number in the array,
 // print the number and "BIG" if it's over 100, "small" if it's between 0 and 100, and "negative" if
