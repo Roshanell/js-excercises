@@ -94,8 +94,17 @@ console.log("The value of z is " + z);
 
 // Without running the code, write down in a comment:
 // 1. What mysteryFunction1 does
+
+// mysteryFunction1 multiplies a mvairable by two.
+
 // 2. What prints out for the value of y
+// 8
+
 // 3. What prints out for the value of z
+
+// y* 2 + y*2
+// 16
+
 // Now run the code and see if you're correct.
 // Were you correct? If not, what did you learn?
 
@@ -121,19 +130,35 @@ console.log("The value of b is " + b);
 // Read about the split() function here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split
 // Try to use it to solve the following challenges:
 
+
+
 // Here's a string I made representing my grocery list.
 // Using split() and groceryList, make an array of my grocery list items
-const groceryList = "eggs,carrots,orange juice";
+const groceryList = "eggs, carrots, orange juice";
+let arrOfGroceryList = groceryList.split(" ")
+
+
+console.log(arrOfGroceryList)
 
 // Here's a string I made representing my morning schedule.
 // Using split() and mySchedule, make an array of the *first 2* things I do in the morning
 // There are multiple ways to do this, but try doing it using only the split() function.
 const mySchedule = "wake up--->brush teeth--->eat breakfast--->go to work";
 
+
+
+const groceryList = "eggs, carrots, orange juice";
+let arrOfGroceryList = groceryList.split(" ", 2)
+
+
+console.log(arrOfGroceryList)
+
+
+
 // Congrats, you made it to the end!
 // Did you find this easy or hard? If you used references, which ones helped you?
 // Please answer in a comment below.
 //
-
+// This was fairly easy to me. Numbers 3 and seven ntripped me up. It also was my first time using the split method with a sperator.
 // Email your file to the course staff,
 // or commit your file to GitHub and email us a link.

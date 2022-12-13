@@ -115,7 +115,7 @@ while (i >= 0 && i <=100)
 // counterFour is equal to -100.
 
 let counterFour = 1;
-while (counterFour < 2) {
+while (counterFour > -100) {
   console.log("HELP ME!");
   counterFour--;
 }
@@ -201,4 +201,4 @@ for (let outsideCounter = 0; outsideCounter <=3; outsideCounter ++ ) {
 // This was good practice I would say not hard per say, but I did have to look 
 //up the syntax for do while loops and while loops as I do not use them often. The nested for loop was challenging. It took me abot 10 minutes to complete.
 
-// Email your file to us or commit your file to GitHub and email us a link.
+// Email your file to us or ƒmit your file to GitHub and email us a link.
