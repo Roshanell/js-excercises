@@ -47,8 +47,9 @@ let assortedThings = ["One", "two", "three", 4, 5, 6];
 // Item #2 is Hello World
 // ...
 
-for (let i = 0; i > assortedThings.length; i++) {
-	console.log("Item 1 is" + i);
+for (let i = 0; i < assortedThings.length; i++) {
+	let item = assortedThings[i];
+	console.log(`Item #${i} is ${item}`);
 }
 
 // Exercise 11. Write a function that takes an array of numbers as a parameter. For each number in the array,
@@ -66,7 +67,7 @@ function bigOrSmall(arr) {
 		console.log(i);
 	}
 }
-console.log(bigOrSmall([1, 2, 3, 4, 5, 6, 7, 8, 8123, 223]));
+bigOrSmall([1, 2, 3, 4, 5, 6, 7, 8, 8123, 223]);
 // Exercise 12. Make an object called me that contains the following keys: name, favoriteAnimal, favoriteNumber
 // The values of those keys can be whatever you choose.
 let newObj = {
@@ -91,8 +92,10 @@ console.log(newObj["favoriteAnimal"]);
 
 // Number 7 tripped me up. I knew that I was supposed to use .length -1. However, using the name of the arr
 // name and brackets. Number 10 was pretty challening as well. I forgot how to access th8ings via bracket notation.
-// I need to remember to write the items in the brackets as a string.
+// I need to remember to write the items in the brackets as a string. Also, I never used i for more thanone item at once in a loop.
+//Number 11 was interesting because I need to remember to store the arr index into a variable to access at a later time
 
+/** */
 // Mostly I used the MDN as a reference or W3 schools.
 //   7, 10 , 11 were the ones I needed to think about
 // Email your file to the course staff,
