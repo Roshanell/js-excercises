@@ -150,6 +150,7 @@ console.log(arrOfGroceryList);
 // Did you find this easy or hard? If you used references, which ones helped you?
 // Please answer in a comment below.
 //
-// This was fairly easy to me. Numbers 3 and seven ntripped me up. It also was my first time using the split method with a sperator.
+// This was fairly easy to me. Numbers 3 and seven tripped me up. It also was my first time using the split method with a sperator.
+//
 // Email your file to the course staff,
 // or commit your file to GitHub and email us a link.
