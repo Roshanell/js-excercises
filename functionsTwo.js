@@ -115,3 +115,19 @@ console.log(indexOf(arr3, 10)); // --> -1
 // includes('abcd', 'b') // --> true
 // includes('abcd', 'e') // --> false
 // includes('abcd', 'a', 2) // --> false
+
+function includes(collection, value, startingObj) {
+	// check type of
+	// conditional
+	// if str or arr 3rd param is startinh indrx
+	// if obj ignore third param
+	// search collection for value change console.log values
+
+	if (Array.isArray(collection) === true) {
+		console.log("array");
+	} else if (typeof collection === "string") {
+		console.log("string");
+	} else {
+		console.log("object");
+	}
+}
