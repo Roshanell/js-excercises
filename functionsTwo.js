@@ -68,10 +68,9 @@ function removeFromString(string, startingIndex, numOfCharToRemove) {
 	// start a string
 	// tell whhere to start in splice
 	// input in splice method
-	let newString = "";
-	for (let i = 0; i < string.length; i++) {
-		string.replace(str[startingIndex], "");
-	}
+	let newString = string.slice(0, startingIndex);
+	let newSring2 = str.slice(startingIndex + numOfCharToRemove);
+	return newString + newSring2;
 }
 
 console.log(removeFromString("this", 0, 1));
@@ -116,18 +115,39 @@ console.log(indexOf(arr3, 10)); // --> -1
 // includes('abcd', 'e') // --> false
 // includes('abcd', 'a', 2) // --> false
 
-function includes(collection, value, startingObj) {
-	// check type of
-	// conditional
-	// if str or arr 3rd param is startinh indrx
-	// if obj ignore third param
-	// search collection for value change console.log values
-
-	if (Array.isArray(collection) === true) {
-		console.log("array");
-	} else if (typeof collection === "string") {
-		console.log("string");
-	} else {
-		console.log("object");
+function includes(collection, value, index = 0) {
+	//check type of collection
+	let type = typeof collection;
+	//because typeof array was giving back 'object', I added a
+	//method to check if collection is an array
+	let isArr = Array.isArray(collection);
+	//if string or array - iterate through with a for loop
+	if (type === "string" || isArr) {
+		//for loop - starting index = index
+		for (let i = index; i < collection.length; i++) {
+			//return true if collections has the value
+			if (collection[i] === value) {
+				return true;
+			}
+		}
+	} else if (type === "object") {
+		//using for in loop to iterate through object
+		for (let item in collection) {
+			if (collection[item] === value) {
+				return true;
+			}
+		}
 	}
+	//otherwise return false
+	return false;
 }
+
+// Examples:
+console.log(includes([1, 2, 3], 1)); // --> true
+console.log(includes([1, 2, 3], 1, 2)); // --> false
+console.log(includes([1, 2, 3], 6)); // --> false
+console.log(includes({ a: 1, b: 2 }, 1)); // --> true
+console.log(includes({ a: 1, b: 2 }, "a")); // --> false
+console.log(includes("abcd", "b")); // --> true
+console.log(includes("abcd", "e")); // --> false
+console.log(includes("abcd", "a", 2)); // --> false
