@@ -18,11 +18,11 @@
 
 function keys(obj, newArr) {
 	const arr = Object.entries(obj);
-
+	// create an arr of key value pairs
 	let arr1 = [];
 	// initalize a new empty
 	for (let i = 0; i < arr.length; i++) {
-		// loopmthrough each item in arr
+		// loop through each item in arr until we get to the end
 		arr1.push(arr[i][0]);
 		// push the first item in each arr to the empty arr
 	}
@@ -47,15 +47,15 @@ let obj = { a: 1, b: 2, c: 3 };
 let obj2 = { first: "Matt", last: "Lane", isDogOwner: true };
 let obj3 = {};
 
-function values(obj, newArr) {
+function values(obj) {
 	const arr = Object.entries(obj);
-
+	// creates key value pairs in objects
 	let arr1 = [];
 	// initalize a new empty
 	for (let i = 0; i < arr.length; i++) {
-		// loopmthrough each item in arr
+		// loop through each item in arr
 		arr1.push(arr[i][1]);
-		// 		arr1.push(arr[i][0]);
+		// 	arr1.push(arr[i][0]);
 		// push the first item in each arr to the empty arr
 	}
 	return arr1;
@@ -69,13 +69,13 @@ console.log(values(obj3)); // []
 // In other words, each sub-array is an "entry" in the object with two elements: the first element is the key, and the second element is the value.
 // IMPORTANT: Do not use the built in Object.entries() function!
 // Examples:
-// let obj = { a: 1, b: 2, c: 3 };
+let obj = { a: 1, b: 2, c: 3 };
 // entries(obj);
 // [["a",1], ["b",2], ["c",3]]
-// let obj2 = { first: 'Matt', last: 'Lane', isDogOwner: true };
+let obj2 = { first: "Matt", last: "Lane", isDogOwner: true };
 // entries(obj2);
 // [["first","Matt"], ["last","Lane"], ["isDogOwner",true]]
-// let obj3 = {};
+let obj3 = {};
 // entries(obj3); // []
 
 let finalArr = [];
@@ -84,26 +84,21 @@ function entries(obj) {
 	// define what keys are
 	let values = Object.values(obj);
 	//define what values are
-	// console.log(keys, values)
 	let i,
 		l = Math.min(keys.length, values.length);
 	// define what i and l are gets the least length
-
 	for (let i = 0; i < l; i++) {
-		// iterates through arr
+		// iterates through all keys in arr and all values
 		finalArr.push([keys[i], values[i]]);
-		// push each instance of key and value pair
-		// console.log(finalArr)
 	}
-	// finalArr.push(...keys.slice(l), ... values.slice(l))
 	return finalArr;
 }
 
-//console.log(entries(obj));
+console.log(entries(obj));
 // [["a",1], ["b",2], ["c",3]]
-//console.log(entries(obj2));
+console.log(entries(obj2));
 // [["first","Matt"], ["last","Lane"], ["isDogOwner",true]]
-//console.log(entries(obj3)); // []
+console.log(entries(obj3)); // []
 
 // Exercise 4. Write a function called pluck, which takes an array of objects and the name of a key.
 // The function should return an array containing the value associated with that key for each object, or undefined if that key is not present in the object.
@@ -119,7 +114,7 @@ let arr2 = [];
 function pluck(arrOfObj, nameOfKey) {
 	for (let i = 0; i < arrOfObj.length; i++) {
 		let values = Object.values(arrOfObj[i]);
-		console.log(values);
+		// console.log(values);
 		arr2.push(values);
 		//original did not work two lines did not work
 		//   values = values.push(Object.values(arrOfObj[i]))
@@ -131,6 +126,19 @@ function pluck(arrOfObj, nameOfKey) {
 console.log(
 	pluck([{ name: "Tim" }, { name: "Matt" }, { name: "Elie" }], "name")
 );
+console.log(
+	pluck([{ name: "Tim" }, { name: "Matt" }, { name: "Elie" }], "name")
+); // ["Tim", "Matt", "Elie"]
+console.log(
+	pluck(
+		[
+			{ name: "Tim", isBoatOwner: true },
+			{ name: "Matt", isBoatOwner: false },
+			{ name: "Elie" },
+		],
+		"isBoatOwner"
+	)
+); // [true, false, undefined]
 
 // Exercise 5. Write a function called stringFromObject that generates a string from an object's key/value pairs.
 // The format should be "key = value, key = value".
@@ -148,26 +156,28 @@ function stringFromObject(obj) {
 	// define what keys are
 	let values = Object.values(obj);
 	//define what values are
-	// console.log(keys, values)
-	let i,
-		l = Math.min(keys.length, values.length);
-	// define what i and l are gets the least length
+	if (Object.keys(obj).length === 0) {
+		return " ";
+	} else {
+		let i,
+			l = Math.min(keys.length, values.length);
+		// define what i and l are gets the least length
 
-	for (let i = 0; i < l; i++) {
-		// iterates through arr
-		finalArr2 += `${keys[i]} = ${values[i]}, `;
-		// add each instance of key and value pair
+		for (let i = 0; i < l; i++) {
+			// iterates through arr
+			finalArr2 += `${keys[i]} = ${values[i]} `;
+			// add each instance of key and value pair
+		}
+		return finalArr2;
 	}
-	console.log(finalArr2);
-	return finalArr2;
 }
+
 // console.log(stringFromObject({ a: 1, b: "2" }));
 // // "a = 1, b = 2"
-// console.log(
-// 	stringFromObject({ name: "Elie", job: "Instructor", isCatOwner: false })
-// );
-// "name = Elie, job = Instructor, isCatOwner = false";
-console.log(stringFromObject({})); // ""
+//console.log(
+//	stringFromObject({ name: "Elie", job: "Instructor", isCatOwner: false }) );
+// // "name = Elie, job = Instructor, isCatOwner = false";
+//console.log(stringFromObject({})); // ""
 // remove one of [] from key and values on line 160
 
 // Exercise 6. Write a function called minMaxKeyInObject that accepts an object with numeric keys.*
@@ -183,7 +193,6 @@ function minMaxKeyInObject(object) {
 	let keys = Object.keys(object);
 	// last key - since obj.key orders the key value pairs the first and last obj will be min and max respectively
 	let lastKey = keys.at(-1);
-
 	return `[${keys[0]}, ${lastKey}]`;
 	// returns the first key and the last key
 }
