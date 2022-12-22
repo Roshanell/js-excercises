@@ -142,10 +142,51 @@ console.log(
 // "name = Elie, job = Instructor, isCatOwner = false"
 // stringFromObject({}); // ""
 
+let finalArr2 = " ";
+function stringFromObject(obj) {
+	let keys = Object.keys(obj);
+	// define what keys are
+	let values = Object.values(obj);
+	//define what values are
+	// console.log(keys, values)
+	let i,
+		l = Math.min(keys.length, values.length);
+	// define what i and l are gets the least length
+
+	for (let i = 0; i < l; i++) {
+		// iterates through arr
+		finalArr2 += `${keys[i]} = ${values[i]}, `;
+		// add each instance of key and value pair
+	}
+	console.log(finalArr2);
+	return finalArr2;
+}
+// console.log(stringFromObject({ a: 1, b: "2" }));
+// // "a = 1, b = 2"
+// console.log(
+// 	stringFromObject({ name: "Elie", job: "Instructor", isCatOwner: false })
+// );
+// "name = Elie, job = Instructor, isCatOwner = false";
+console.log(stringFromObject({})); // ""
+// remove one of [] from key and values on line 160
+
 // Exercise 6. Write a function called minMaxKeyInObject that accepts an object with numeric keys.*
 // The function should return an array with the following format: [lowestKey, highestKey]
 // Examples:
 // minMaxKeyInObject({ 2: 'a', 7: 'b', 1: 'c', 10: 'd', 4: 'e' });
 // [1, 10]
 // minMaxKeyInObject({ 1: 'Elie', 4: 'Matt', 2: 'Tim' });
+// [1, 4]
+
+function minMaxKeyInObject(object) {
+	// find the keys in the object
+	let keys = Object.keys(object);
+	// last key - since obj.key orders the key value pairs the first and last obj will be min and max respectively
+	let lastKey = keys.at(-1);
+
+	return `[${keys[0]}, ${lastKey}]`;
+	// returns the first key and the last key
+}
+console.log(minMaxKeyInObject({ 2: "a", 7: "b", 1: "c", 10: "d", 4: "e" }));
+console.log(minMaxKeyInObject({ 1: "Elie", 4: "Matt", 2: "Tim" }));
 // [1, 4]
