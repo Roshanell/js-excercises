@@ -103,18 +103,22 @@ console.log(entries(obj3)); // []
 // Exercise 4. Write a function called pluck, which takes an array of objects and the name of a key.
 // The function should return an array containing the value associated with that key for each object, or undefined if that key is not present in the object.
 // Examples:
-// pluck([{ name: "Tim" }, { name: "Matt" }, { name: "Elie" }],'name')
 // ["Tim", "Matt", "Elie"]
-// pluck([{ name: "Tim", isBoatOwner: true }, { name: "Matt", isBoatOwner: false }, { name: "Elie" }],'isBoatOwner')
 // [true, false, undefined]
 
 //QUESTIONS why isn't my flatten method working and why can't I just use obj.values and get it over with
 
-let arr2 = [];
 function pluck(arrOfObj, nameOfKey) {
+	let arr2 = [];
 	for (let i = 0; i < arrOfObj.length; i++) {
-		let values = Object.values(arrOfObj[i]);
-		// console.log(values);
+		// console.log(arrOfObj[i]);
+		//       loop through each item in the array
+		let values = arrOfObj[i][nameOfKey];
+		//acessess each name of key in the array of objects
+		//       console.log(arrOfObj[i], "something")
+
+		//         // console.log(values);
+		//         console.log(arrOfObj[i][nameOfKey], "values")
 		arr2.push(values);
 		//original did not work two lines did not work
 		//   values = values.push(Object.values(arrOfObj[i]))
@@ -123,12 +127,7 @@ function pluck(arrOfObj, nameOfKey) {
 	}
 	return arr2;
 }
-console.log(
-	pluck([{ name: "Tim" }, { name: "Matt" }, { name: "Elie" }], "name")
-);
-console.log(
-	pluck([{ name: "Tim" }, { name: "Matt" }, { name: "Elie" }], "name")
-); // ["Tim", "Matt", "Elie"]
+
 console.log(
 	pluck(
 		[
@@ -140,6 +139,9 @@ console.log(
 	)
 ); // [true, false, undefined]
 
+console.log(
+	pluck([{ name: "Tim" }, { name: "Matt" }, { name: "Elie" }], "name")
+);
 // Exercise 5. Write a function called stringFromObject that generates a string from an object's key/value pairs.
 // The format should be "key = value, key = value".
 // Each key/value pair should be separated by a comma and space except for the last pair.
